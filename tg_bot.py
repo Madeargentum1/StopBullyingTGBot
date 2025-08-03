@@ -99,7 +99,7 @@ async def handle_message(message: types.Message):
                 InlineKeyboardButton(text='❌ Не буллинг', callback_data=f'admin|{sid}|0')
             )
             await bot.send_message(
-                ADMIN_ID,
+                Telegram.admin_id,
                 f"<b>Удалено сообщение:</b>\n<pre>{message.text}</pre>",
                 reply_markup=keyboard.as_markup()
             )
