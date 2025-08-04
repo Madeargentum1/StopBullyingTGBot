@@ -1,4 +1,7 @@
 import asyncio
+import threading
+
+import server
 import tg_bot
 
 
@@ -8,4 +11,5 @@ async def main():
 
 
 if __name__ == "__main__":
+    threading.Thread(target=server.run_web_server, daemon=True).start()
     asyncio.run(main())

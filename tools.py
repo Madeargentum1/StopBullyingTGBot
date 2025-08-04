@@ -2,16 +2,19 @@ import csv
 import os
 import re
 from collections import defaultdict
+import platform
 
 import joblib
 
 
-FP_PATH = r"E:\PycharmProjects\detectbully\false_positives.csv"
-FN_PATH = r"E:\PycharmProjects\detectbully\false_negatives.csv"
+FP_PATH = r"E:\PycharmProjects\detectbully\false_positives.csv" \
+    if 'Windows' in platform.system() else "false_positives.csv"
+FN_PATH = r"E:\PycharmProjects\detectbully\false_negatives.csv" \
+    if 'Windows' in platform.system() else "false_negatives.csv"
 USER_STATS_DB = "user_stats.csv"
 CSV_FILENAME = "moderation_results.csv"
-MODEL_PATH = "model.pkl"
-model = joblib.load(r"E:\PycharmProjects\detectbully\bullying_detector_model.pkl")
+model = joblib.load(r"E:\PycharmProjects\detectbully\bullying_detector_model.pkl"
+                    if 'Windows' in platform.system() else "bullying_detector_model.pkl")
 
 user_buffers = {}
 user_stats = defaultdict(int)
